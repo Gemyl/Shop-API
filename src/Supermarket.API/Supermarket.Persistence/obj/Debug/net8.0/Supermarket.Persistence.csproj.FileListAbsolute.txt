@@ -1,0 +1,17 @@
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Persistence.deps.json
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Persistence.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Persistence.pdb
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.csproj.AssemblyReference.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.AssemblyInfoInputs.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.AssemblyInfo.cs
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.csproj.CoreCompileInputs.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermar.A1543F4A.Up2Date
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\refint\Supermarket.Persistence.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.pdb
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\ref\Supermarket.Persistence.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Persistence.runtimeconfig.json
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\obj\Debug\net8.0\Supermarket.Persistence.genruntimeconfig.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Core.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Persistence\bin\Debug\net8.0\Supermarket.Core.pdb

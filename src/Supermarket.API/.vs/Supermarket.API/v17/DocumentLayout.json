@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\shop\\src\\Supermarket.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C25E4A4-F997-4221-AD54-370F8F81FF97}|Supermarket.API\\Supermarket.API.csproj|c:\\projects\\shop\\src\\supermarket.api\\supermarket.api\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C25E4A4-F997-4221-AD54-370F8F81FF97}|Supermarket.API\\Supermarket.API.csproj|solutionrelative:supermarket.api\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C25E4A4-F997-4221-AD54-370F8F81FF97}|Supermarket.API\\Supermarket.API.csproj|c:\\projects\\shop\\src\\supermarket.api\\supermarket.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C25E4A4-F997-4221-AD54-370F8F81FF97}|Supermarket.API\\Supermarket.API.csproj|solutionrelative:supermarket.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Projects\\shop\\src\\Supermarket.API\\Supermarket.API\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Supermarket.API\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Projects\\shop\\src\\Supermarket.API\\Supermarket.API\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Supermarket.API\\Controllers\\CategoriesController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwDgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T13:56:43.045Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Projects\\shop\\src\\Supermarket.API\\Supermarket.API\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Supermarket.API\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Projects\\shop\\src\\Supermarket.API\\Supermarket.API\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Supermarket.API\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T13:57:31.387Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

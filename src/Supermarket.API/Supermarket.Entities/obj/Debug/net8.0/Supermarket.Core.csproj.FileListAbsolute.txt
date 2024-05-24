@@ -1,0 +1,11 @@
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\bin\Debug\net8.0\Supermarket.Core.deps.json
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\bin\Debug\net8.0\Supermarket.Core.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\bin\Debug\net8.0\Supermarket.Core.pdb
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.AssemblyInfoInputs.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.AssemblyInfo.cs
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.csproj.CoreCompileInputs.cache
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\refint\Supermarket.Core.dll
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\Supermarket.Core.pdb
+C:\Projects\shop\src\Supermarket.API\Supermarket.Entities\obj\Debug\net8.0\ref\Supermarket.Core.dll
