@@ -21,28 +21,28 @@ namespace Supermarket.Core.Services.Categories
             return await _categoryRepository.GetAllAsync();    
         }
 
-        public async Task<SaveCategoryResponse> CreateAsync(Category category)
+        public async Task<CategoryResponse> CreateAsync(Category category)
         {
             try 
             {
                 await _categoryRepository.AddAsync(category);
                 await _unitOfWork.CompleteAsync();
 
-                return new SaveCategoryResponse(category);
+                return new CategoryResponse(true, category.Id.ToString());
             }
             catch (Exception ex) 
             {
-                return new SaveCategoryResponse(ex.Message);
+                return new CategoryResponse(false, ex.Message);
             }
         }
 
-        public async Task<SaveCategoryResponse> Update(Category category)
+        public async Task<CategoryResponse> Update(Category category)
         {
             var existingCategory = await _categoryRepository.FindByIdAsync(category.Id);
 
             if (existingCategory == null)
             { 
-                return new SaveCategoryResponse("Category Not Found");
+                return new CategoryResponse(false, "Category Not Found");
             }
 
             existingCategory.Name = category.Name;
@@ -52,15 +52,15 @@ namespace Supermarket.Core.Services.Categories
                 _categoryRepository.Update(existingCategory);
                 await _unitOfWork.CompleteAsync();
 
-                return new SaveCategoryResponse(existingCategory);
+                return new CategoryResponse(true);
             }
             catch (Exception ex)
             {
-                return new SaveCategoryResponse(ex.Message);
+                return new CategoryResponse(false, ex.Message);
             }
         }
 
-        public async Task<DeleteCategoryResponse> Delete(Guid id)
+        public async Task<CategoryResponse> Delete(Guid id)
         {
             try 
             {
@@ -68,16 +68,16 @@ namespace Supermarket.Core.Services.Categories
 
                 if (category == null) 
                 {
-                    return new DeleteCategoryResponse("Category Not Found");
+                    return new CategoryResponse(false, "Category Not Found");
                 }
 
                 _categoryRepository.Delete(category);
                 await _unitOfWork.CompleteAsync();
-                return new DeleteCategoryResponse();
+                return new CategoryResponse(true);
             }
             catch (Exception ex)
             {
-                return new DeleteCategoryResponse(ex.Message);
+                return new CategoryResponse(false, ex.Message);
             }
         }
     }

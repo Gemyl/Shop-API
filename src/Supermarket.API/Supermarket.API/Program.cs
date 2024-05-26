@@ -9,6 +9,12 @@ using DotNetEnv;
 using Supermarket.Core.Repositories.Products;
 using Supermarket.Core.Services.Products;
 using Supermarket.Persistence.Repositories.Products;
+using MediatR;
+using Supermarket.Commands.Categories;
+using Supermarket.Queries.Categories;
+using Supermarket.Handlers.Categories;
+using Supermarket.Core.Services.Communication.Categories;
+using Supermarket.Core.Dtos.Categories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +45,12 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddTransient<IRequestHandler<GetCategories, IEnumerable<CategoryDto>>, GetCategoriesHandler>();
+builder.Services.AddTransient<IRequestHandler<CreateCategory, CategoryResponse>, CreateCategoryHandler>();
+builder.Services.AddTransient<IRequestHandler<UpdateCategory, CategoryResponse>, UpdateCategoryHandler>();
+builder.Services.AddTransient<IRequestHandler<DeleteCategory, CategoryResponse>, DeleteCategoryHandler>();
 
 var app = builder.Build();
 

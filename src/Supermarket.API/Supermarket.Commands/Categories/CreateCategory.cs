@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
+using Supermarket.Core.Dtos;
+using Supermarket.Core.Services.Communication.Categories;
+using System.ComponentModel.DataAnnotations;
 
 namespace Supermarket.Commands.Categories
 {
-    public class CreateCategory
+    public class CreateCategory: IRequest<CategoryResponse>
     {
         [Required]
         [StringLength(50)]

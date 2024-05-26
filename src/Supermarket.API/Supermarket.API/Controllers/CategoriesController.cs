@@ -1,34 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Supermarket.Commands.Categories;
-using Supermarket.Core.Dtos;
-using Supermarket.Core.Services.Categories;
-using Supermarket.Mapping.Categories;
+using Supermarket.Core.Dtos.Categories;
 using Supermarket.API.Extensions;
 using Supermarket.Queries.Categories;
+using MediatR;
 
 namespace Supermarket.API.Controllers
 {
     [Route("/api/[controller]")]
     public class CategoriesController : Controller
     {
-        private readonly ICategoriesService _categoryService;
+        private readonly IMediator _mediator;
 
-        public CategoriesController(ICategoriesService categoryService) 
-        { 
-            _categoryService = categoryService;
+        public CategoriesController(IMediator mediator)
+        {
+            _mediator = mediator;
         }
 
         [HttpGet("GetCategories")]
-        public async Task<IEnumerable<CategoryDto>> GetCategories()
-        { 
-            var categories = await _categoryService.GetAllAsync();
-            var categoriesDto = categories.Select(c => 
-            {
-                var cDto = CategoryMapper.GetCategoryDto(c);
-                return cDto;
-            });
-
-            return categoriesDto;
+        public async Task<IEnumerable<CategoryDto>> GetCategories(GetCategories query)
+        {
+            var result = await _mediator.Send(query);
+            return result;
         }
 
         [HttpPost("CreateCategory")]
@@ -39,16 +32,8 @@ namespace Supermarket.API.Controllers
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var category = CategoryMapper.GetCategoryFromCreateCommand(command);
-            var result = await _categoryService.CreateAsync(category);
-
-            if (!result.Success) 
-            {
-                return BadRequest(result.Message);
-            }
-
-            var categoryDto = CategoryMapper.GetCategoryDto(result.Category);
-            return Ok(categoryDto);
+            var result = await _mediator.Send(command);
+            return Ok(result.Message);
         }
 
         [HttpPut("UpdateCategory")]
@@ -58,27 +43,23 @@ namespace Supermarket.API.Controllers
             { 
                 return BadRequest(ModelState.GetErrorMessages());
             }
-
-            var category = CategoryMapper.GetCategoryFromUpdateCommand(command);
-            var result = await _categoryService.Update(category);
-
-            if (!result.Success)
+            
+            var result = await _mediator.Send(command);
+            if (!result.Success) 
             { 
-                return BadRequest(result.Message);
+                return Ok(result.Message);
             }
 
-            var categoryDto = CategoryMapper.GetCategoryDto(result.Category);
-            return Ok(categoryDto);
+            return Ok(result.Success);
         }
 
         [HttpDelete("DeleteCategory")]
-        public async Task<IActionResult> DeleteCategory([FromQuery] DeleteCategory query)
+        public async Task<IActionResult> DeleteCategory([FromQuery] DeleteCategory command)
         {
-            var result = await _categoryService.Delete(query.Id);
-
-            if (!result.Success)
-            { 
-                return BadRequest(result.Message); 
+            var result = await _mediator.Send(command);
+            if (!result.Success) 
+            {
+                return Ok(result.Message);
             }
 
             return Ok(result.Success);

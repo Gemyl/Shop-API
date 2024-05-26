@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Supermarket.Core.Dtos;
+using Supermarket.Core.Dtos.Categories;
 using Supermarket.Core.Entities;
 using Supermarket.Commands.Categories;
 
