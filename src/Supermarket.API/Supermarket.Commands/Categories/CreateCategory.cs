@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Supermarket.Core.Dtos;
 using Supermarket.Core.Services.Communication.Categories;
 using System.ComponentModel.DataAnnotations;
 

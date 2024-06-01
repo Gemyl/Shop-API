@@ -2,7 +2,7 @@
 using Supermarket.Core.Services.Communication.Categories;
 using System.ComponentModel.DataAnnotations;
 
-namespace Supermarket.Queries.Categories
+namespace Supermarket.Commands.Categories
 {
     public class DeleteCategory : IRequest<CategoryResponse>
     {

@@ -3,7 +3,7 @@ using Supermarket.Core.Dtos.Categories;
 
 namespace Supermarket.Queries.Categories
 {
-    public class GetCategories : IRequest<IEnumerable<CategoryDto>>
+    public class GetAllCategories : IRequest<IEnumerable<CategoryDto>>
     {
     }
 }

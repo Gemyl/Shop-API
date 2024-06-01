@@ -1,79 +1,68 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Supermarket.API.Extensions;
 using Supermarket.Commands.Products;
-using Supermarket.Core.Services.Products;
-using Supermarket.Mapping.Products;
-using Supermarket.Queries;
+using MediatR;
+using Supermarket.Queries.Products;
 
 namespace Supermarket.API.Controllers
 {
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        private readonly IProductsService _productsService;
+        private readonly IMediator _mediator;
 
-        public ProductsController(IProductsService productsService) 
+        public ProductsController(IMediator mediator) 
         { 
-            _productsService = productsService;
+            _mediator = mediator;
         }
 
         [HttpGet("GetProducts")]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> GetAllCategories(GetAllProducts query)
         {
-            var allProducts = await _productsService.GetAllAsync();
-            var allProductsDtos = allProducts.Select(p => 
-            {
-                var pDto = ProductsMapper.GetProductDto(p);
-                return pDto;
-            });
-
-            return Ok(allProductsDtos);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
 
         [HttpPost("CreateProduct")]
-        public async Task<IActionResult> CreateProduct(CreateProduct command) 
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProduct command) 
         {
             if (!ModelState.IsValid)
             { 
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var product = ProductsMapper.GetProductFromCreateCommand(command);
-            var result = await _productsService.CreateAsync(product);
+            var result = await _mediator.Send(command);
 
             if (!result.Success)
             {
                 return BadRequest(result.Message);
             }
 
-            var productDto = ProductsMapper.GetProductDto(result.Product);
-            return Ok(productDto);
+            return Ok(result.Message);
         }
 
         [HttpPut("UpdateProduct")]
-        public async Task<IActionResult> UpdateProduct(UpdateProduct command)
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct command)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var product = ProductsMapper.GetProductFromUpdateCommand(command);
-            var result = await _productsService.Update(product);
+            var result = await _mediator.Send(command);
 
             if (!result.Success)
             {
                 return BadRequest(result.Message);
             }
 
-            var productDto = ProductsMapper.GetProductDto(result.Product);
-            return Ok(productDto);
+            return Ok(result.Success);
         }
 
         [HttpDelete("DeleteProduct")]
-        public async Task<IActionResult> DeleteProduct([FromQuery] DeleteProduct query)
+        public async Task<IActionResult> DeleteProduct([FromQuery] DeleteProduct command)
         {
-            var result = await _productsService.Delete(query.Id);
+            var result = await _mediator.Send(command);
 
             if (!result.Success)
             {

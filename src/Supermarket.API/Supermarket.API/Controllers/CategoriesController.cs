@@ -18,7 +18,7 @@ namespace Supermarket.API.Controllers
         }
 
         [HttpGet("GetCategories")]
-        public async Task<IEnumerable<CategoryDto>> GetCategories(GetCategories query)
+        public async Task<IEnumerable<CategoryDto>> GetCategories(GetAllCategories query)
         {
             var result = await _mediator.Send(query);
             return result;

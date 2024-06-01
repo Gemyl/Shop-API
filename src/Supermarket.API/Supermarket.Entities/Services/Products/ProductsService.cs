@@ -28,11 +28,11 @@ namespace Supermarket.Core.Services.Products
                 await _productsRepository.AddAsync(product);
                 await _unitOfWork.CompleteAsync();
 
-                return new ProductResponse(product);
+                return new ProductResponse(true, product.Id.ToString());
             }
             catch (Exception ex) 
             { 
-                return new ProductResponse(ex.Message);
+                return new ProductResponse(false, ex.Message);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Supermarket.Core.Services.Products
 
                 if (existingProduct == null) 
                 {
-                    return new ProductResponse("Product Not Found");
+                    return new ProductResponse(false, "Product Not Found");
                 }
 
                 existingProduct.Name = product.Name;
@@ -55,11 +55,11 @@ namespace Supermarket.Core.Services.Products
                 _productsRepository.Update(existingProduct);
                 await _unitOfWork.CompleteAsync();
 
-                return new ProductResponse(product);
+                return new ProductResponse(true);
             }
             catch (Exception ex) 
             {
-                return new ProductResponse(ex.Message);
+                return new ProductResponse(false, ex.Message);
             }
         }
 
@@ -71,17 +71,17 @@ namespace Supermarket.Core.Services.Products
 
                 if (product == null) 
                 {
-                    return new ProductResponse("Product Not Found");
+                    return new ProductResponse(false, "Product Not Found");
                 }
 
                 _productsRepository.Delete(product);
                 await _unitOfWork.CompleteAsync();
 
-                return new ProductResponse(new Product());
+                return new ProductResponse(true);
             }
             catch (Exception ex) 
             {
-                return new ProductResponse(ex.Message);
+                return new ProductResponse(false, ex.Message);
             }
         }
     }

@@ -1,9 +1,11 @@
-﻿using Supermarket.Core.Enums;
+﻿using MediatR;
+using Supermarket.Core.Enums;
+using Supermarket.Core.Services.Communication.Products;
 using System.ComponentModel.DataAnnotations;
 
 namespace Supermarket.Commands.Products
 {
-    public class CreateProduct
+    public class CreateProduct : IRequest<ProductResponse>
     {
         [Required]
         [MaxLength(50)]

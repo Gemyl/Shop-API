@@ -1,9 +1,11 @@
-﻿using Supermarket.Core.Enums;
+﻿using MediatR;
+using Supermarket.Core.Enums;
+using Supermarket.Core.Services.Communication.Products;
 using System.ComponentModel.DataAnnotations;
 
 namespace Supermarket.Commands.Products
 {
-    public class UpdateProduct
+    public class UpdateProduct : IRequest<ProductResponse>
     {
         [Required]
         public Guid Id { get; set; }

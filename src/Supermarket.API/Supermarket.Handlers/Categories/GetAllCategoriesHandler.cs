@@ -6,16 +6,16 @@ using Supermarket.Queries.Categories;
 
 namespace Supermarket.Handlers.Categories
 {
-    public class GetCategoriesHandler : IRequestHandler<GetCategories, IEnumerable<CategoryDto>>
+    public class GetAllCategoriesHandler : IRequestHandler<GetAllCategories, IEnumerable<CategoryDto>>
     {
         private readonly ICategoriesService _categoriesService;
 
-        public GetCategoriesHandler(ICategoriesService categoriesService) 
+        public GetAllCategoriesHandler(ICategoriesService categoriesService) 
         { 
             _categoriesService = categoriesService;
         }
 
-        public async Task<IEnumerable<CategoryDto>> Handle(GetCategories query, CancellationToken token) 
+        public async Task<IEnumerable<CategoryDto>> Handle(GetAllCategories query, CancellationToken token) 
         {
             var categories = await _categoriesService.GetAllAsync();
             var categoriesDto = categories.Select(c =>

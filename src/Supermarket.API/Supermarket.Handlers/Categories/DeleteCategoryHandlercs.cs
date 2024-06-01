@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Supermarket.Core.Services.Categories;
 using Supermarket.Core.Services.Communication.Categories;
-using Supermarket.Queries.Categories;
+using Supermarket.Commands.Categories;
 
 namespace Supermarket.Handlers.Categories
 {
