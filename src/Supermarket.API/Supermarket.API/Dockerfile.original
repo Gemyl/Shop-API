@@ -3,19 +3,13 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
+EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Supermarket.API/Supermarket.API.csproj", "Supermarket.API/"]
-COPY ["Supermarket.Commands/Supermarket.Commands.csproj", "Supermarket.Commands/"]
-COPY ["Supermarket.Entities/Supermarket.Core.csproj", "Supermarket.Entities/"]
-COPY ["Supermarket.Handlers/Supermarket.Handlers.csproj", "Supermarket.Handlers/"]
-COPY ["Supermarket.Mapping/Supermarket.Mapping.csproj", "Supermarket.Mapping/"]
-COPY ["Supermarket.Extensions/Supermarket.Extensions.csproj", "Supermarket.Extensions/"]
-COPY ["Supermarket.Queries/Supermarket.Queries.csproj", "Supermarket.Queries/"]
-COPY ["Supermarket.Persistence/Supermarket.Persistence.csproj", "Supermarket.Persistence/"]
 RUN dotnet restore "./Supermarket.API/Supermarket.API.csproj"
 COPY . .
 WORKDIR "/src/Supermarket.API"
