@@ -3,18 +3,13 @@ version: '3.4'
 services:
   supermarket.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - ConnectionString=Server=${SERVER};Database=${DATABASE};User=${USER};Password=${PASSWORD};Trusted_Connection=True;TrustServerCertificate=True;
-  
-    env_file:
-      - ".env"
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_HTTP_PORTS=8080
+        - ConnectionString=Server=${SERVER};Database=${SQL_DB};User ID=${USER};Password=${PASSWORD};Encrypt=False;MultipleActiveResultSets=True;TrustServerCertificate=True;
 
     ports:
-      - "5075:8080"
-      - "5076:8081"
+        - "9000:8080"
 
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+        - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+        - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

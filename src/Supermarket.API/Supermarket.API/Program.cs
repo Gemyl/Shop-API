@@ -33,13 +33,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SupermarketContext>(options => 
     {
         Env.Load();
-
-        var server = Environment.GetEnvironmentVariable("SERVER");
-        var database = Environment.GetEnvironmentVariable("DATABASE");
-        var user = Environment.GetEnvironmentVariable("USER");
-        var password = Environment.GetEnvironmentVariable("PASSWORD");
-
-        var connectionString = $"Server={server};Database={database};User={user};Password={password};Trusted_Connection=True;TrustServerCertificate=True;";
+        var connectionString = Environment.GetEnvironmentVariable("ConnectionString");
         options.UseSqlServer(connectionString);
     }
 );
