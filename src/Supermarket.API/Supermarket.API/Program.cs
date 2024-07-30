@@ -9,17 +9,7 @@ using DotNetEnv;
 using Supermarket.Core.Repositories.Products;
 using Supermarket.Core.Services.Products;
 using Supermarket.Persistence.Repositories.Products;
-using MediatR;
-using Supermarket.Commands.Categories;
-using Supermarket.Queries.Categories;
-using Supermarket.Handlers.Categories;
-using Supermarket.Core.Services.Communication.Categories;
-using Supermarket.Core.Dtos.Categories;
-using Supermarket.Queries.Products;
-using Supermarket.Core.Services.Communication.Products;
-using Supermarket.Core.Dtos.Products;
-using Supermarket.Handlers.Products;
-using Supermarket.Commands.Products;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,16 +35,10 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
-builder.Services.AddTransient<IRequestHandler<GetAllCategories, IEnumerable<CategoryDto>>, GetAllCategoriesHandler>();
-builder.Services.AddTransient<IRequestHandler<CreateCategory, CategoryResponse>, CreateCategoryHandler>();
-builder.Services.AddTransient<IRequestHandler<UpdateCategory, CategoryResponse>, UpdateCategoryHandler>();
-builder.Services.AddTransient<IRequestHandler<DeleteCategory, CategoryResponse>, DeleteCategoryHandler>();
-
-builder.Services.AddTransient<IRequestHandler<GetAllProducts, IEnumerable<ProductDto>>, GetAllProductsHandler>();
-builder.Services.AddTransient<IRequestHandler<CreateProduct, ProductResponse>, CreateProductHandler>();
-builder.Services.AddTransient<IRequestHandler<UpdateProduct, ProductResponse>, UpdateProductHandler>();
-builder.Services.AddTransient<IRequestHandler<DeleteProduct, ProductResponse>, DeleteProductHandler>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+    Assembly.GetExecutingAssembly(),
+    Assembly.Load("Supermarket.Handlers")
+));
 
 var app = builder.Build();
 
